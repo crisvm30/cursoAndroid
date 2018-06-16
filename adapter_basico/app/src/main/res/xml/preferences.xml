@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="Preferencias"
+        >
+
+        <ListPreference
+            android:key="pref_tamano_letra"
+            android:title="Tamaño de la letra"
+            android:dialogTitle="Tamaño"
+            android:entries="@array/listaTamanos"
+            android:entryValues="@array/valoresListaTamanos"
+            android:defaultValue="@string/valorPequeno"
+            />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

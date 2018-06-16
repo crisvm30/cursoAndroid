@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="listaTamanos">
+        <item name="25">Pequeño</item>
+        <item name="40">Mediano</item>
+        <item name="50">Grande</item>
+    </string-array>
+
+    <string-array name="valoresListaTamanos">
+        <item name="25">15</item>
+        <item name="40">20</item>
+        <item name="50">25</item>
+    </string-array>
+
+</resources>

@@ -29,13 +29,13 @@ public class Contact {
     @DatabaseField(columnName = "contact_city",canBeNull = false)
     public String city;
 
-    /*public Contact(String name, int age, String email, String phone,String city){
+    public Contact(String name, int age, String email, String phone,String city){
         this.name = name;
         this.age = age;
         this.email = email;
         this.phone = phone;
         this.city = city;
-    }*/
+    }
 
     public Contact(){}
 }

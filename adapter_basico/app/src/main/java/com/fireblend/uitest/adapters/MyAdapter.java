@@ -1,6 +1,10 @@
 package com.fireblend.uitest.adapters;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +14,10 @@ import android.widget.Toast;
 
 import com.fireblend.uitest.R;
 import com.fireblend.uitest.entities.Contact;
+import com.fireblend.uitest.ui.AddContactActivity;
+import com.fireblend.uitest.ui.ContactDetailActivity;
+import com.fireblend.uitest.ui.MainActivity;
+import com.fireblend.uitest.utils.ConstantsApp;
 
 import java.util.List;
 
@@ -24,6 +32,8 @@ import java.util.List;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     private List<Contact> myData;
+    private SharedPreferences prefs;
+
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
         public View view;
@@ -42,13 +52,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         View row = LayoutInflater.from(parent.getContext()).inflate(R.layout.contact_item, parent, false);
 
         ViewHolder vh = new ViewHolder(row);
+
+        prefs = PreferenceManager.getDefaultSharedPreferences(parent.getContext());
         return vh;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        TextView name, age, phone, email, city;
+        final TextView name, age, phone, email, city;
 
         name = (TextView) holder.view.findViewById(R.id.name);
         age = (TextView) holder.view.findViewById(R.id.age);
@@ -64,7 +76,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Hola, "+myData.get(pos).name, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(v.getContext(), "Hola, "+myData.get(pos).name, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(v.getContext(),ContactDetailActivity.class);
+                intent.putExtra(ConstantsApp.LLAVE_NOMBRE,name.getText().toString());
+                intent.putExtra(ConstantsApp.LLAVE_EDAD,age.getText().toString());
+                intent.putExtra(ConstantsApp.LLAVE_EMAIL,email.getText().toString());
+                intent.putExtra(ConstantsApp.LLAVE_TELEFONO,phone.getText().toString());
+                intent.putExtra(ConstantsApp.LLAVE_PROVINCIA,city.getText().toString());
+
+                v.getContext().startActivity(intent);
             }
         });
 
@@ -73,6 +93,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         phone.setText("Telefono:"+myData.get(position).phone);
         email.setText("Email:"+myData.get(position).email);
         city.setText("Provincia:"+myData.get(position).city);
+
+        String currentSize = prefs.getString("pref_tamano_letra","15");
+        name.setTextSize(TypedValue.COMPLEX_UNIT_DIP,Float.parseFloat(currentSize));
+        age.setTextSize(TypedValue.COMPLEX_UNIT_DIP,Float.parseFloat(currentSize));
+        phone.setTextSize(TypedValue.COMPLEX_UNIT_DIP,Float.parseFloat(currentSize));
+        email.setTextSize(TypedValue.COMPLEX_UNIT_DIP,Float.parseFloat(currentSize));
+        city.setTextSize(TypedValue.COMPLEX_UNIT_DIP,Float.parseFloat(currentSize));
 
 
     }
