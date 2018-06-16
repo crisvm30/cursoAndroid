@@ -45,15 +45,11 @@ public class MainActivity extends AppCompatActivity  {
     DatabaseHelper dbHelper = null;
     Dao<Contact,Integer> contactDao = null;
 
-    private static final String PREFS = "xml.preferences";
-    private SharedPreferences prefs;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         dbHelper = new DatabaseHelper(this);
         super.onCreate(savedInstanceState);
-        Log.i("Test","Entered onCreate");
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setupList();
@@ -65,8 +61,6 @@ public class MainActivity extends AppCompatActivity  {
                 startActivity(intent);
             }
         });
-
-        prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         btnPrefs.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,9 +84,7 @@ public class MainActivity extends AppCompatActivity  {
             if(getIntent().getStringExtra(ConstantsApp.LLAVE_NOMBRE) != null && getIntent().getStringExtra(ConstantsApp.LLAVE_EDAD) != null && getIntent().getStringExtra(ConstantsApp.LLAVE_TELEFONO) != null && getIntent().getStringExtra(ConstantsApp.LLAVE_EMAIL) != null){
                 contactDao.create(new Contact(getIntent().getStringExtra(ConstantsApp.LLAVE_NOMBRE), Integer.parseInt(getIntent().getStringExtra(ConstantsApp.LLAVE_EDAD)), getIntent().getStringExtra(ConstantsApp.LLAVE_EMAIL), getIntent().getStringExtra(ConstantsApp.LLAVE_TELEFONO),getIntent().getStringExtra(ConstantsApp.LLAVE_PROVINCIA)));
 
-                Log.i("Test","Entered new contact");
             }
-            Log.i("Test","out new contact");
 
 
             if(contactDao.queryForAll().isEmpty()){
@@ -128,46 +120,24 @@ public class MainActivity extends AppCompatActivity  {
 
     @Override
     protected void onStart() {
-        Log.i("Test2","entered onStart() ");
         super.onStart();
 
         list.setAdapter(myAdapter);
-/*
-        Log.i("Test","Entered onStart");
-        try {
-            contactDao = dbHelper.getContactDao();
-
-            if(getIntent().getStringExtra(ConstantsApp.LLAVE_NOMBRE) != null && getIntent().getStringExtra(ConstantsApp.LLAVE_EDAD) != null && getIntent().getStringExtra(ConstantsApp.LLAVE_TELEFONO) != null && getIntent().getStringExtra(ConstantsApp.LLAVE_EMAIL) != null){
-                contactDao.create(new Contact(getIntent().getStringExtra(ConstantsApp.LLAVE_NOMBRE), Integer.parseInt(getIntent().getStringExtra(ConstantsApp.LLAVE_EDAD)), getIntent().getStringExtra(ConstantsApp.LLAVE_EMAIL), getIntent().getStringExtra(ConstantsApp.LLAVE_TELEFONO),getIntent().getStringExtra(ConstantsApp.LLAVE_PROVINCIA)));
-
-                Log.i("Test","Entered new contact");
-            }
-            Log.i("Test","out new contact");
-            contacts = contactDao.queryForAll();
-
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-*/
 
     }
 
     @Override
     protected void onResume() {
-        Log.i("Test","Entered onResume");
         super.onResume();
     }
 
     @Override
     protected void onPause() {
-        Log.i("Test2","entered onPause() ");
         super.onPause();
     }
 
     @Override
     protected void onStop() {
-        Log.i("Test2","entered onStop() ");
         super.onStop();
     }
 

@@ -3,6 +3,7 @@
 
     <PreferenceCategory
         android:title="Preferencias"
+        android:layout="@layout/prefs_layout"
         >
 
         <ListPreference
@@ -12,6 +13,12 @@
             android:entries="@array/listaTamanos"
             android:entryValues="@array/valoresListaTamanos"
             android:defaultValue="@string/valorPequeno"
+            />
+
+        <CheckBoxPreference
+            android:key="pref_btn_eliminar"
+            android:title="Habilitar botón de Eliminar"
+            android:defaultValue="true"
             />
 
     </PreferenceCategory>

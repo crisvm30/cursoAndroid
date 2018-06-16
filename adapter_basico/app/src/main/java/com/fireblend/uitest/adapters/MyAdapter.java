@@ -95,11 +95,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         city.setText("Provincia:"+myData.get(position).city);
 
         String currentSize = prefs.getString("pref_tamano_letra","15");
-        name.setTextSize(TypedValue.COMPLEX_UNIT_DIP,Float.parseFloat(currentSize));
-        age.setTextSize(TypedValue.COMPLEX_UNIT_DIP,Float.parseFloat(currentSize));
-        phone.setTextSize(TypedValue.COMPLEX_UNIT_DIP,Float.parseFloat(currentSize));
-        email.setTextSize(TypedValue.COMPLEX_UNIT_DIP,Float.parseFloat(currentSize));
-        city.setTextSize(TypedValue.COMPLEX_UNIT_DIP,Float.parseFloat(currentSize));
+        name.setTextSize(TypedValue.COMPLEX_UNIT_SP,Float.parseFloat(currentSize));
+        age.setTextSize(TypedValue.COMPLEX_UNIT_SP,Float.parseFloat(currentSize));
+        phone.setTextSize(TypedValue.COMPLEX_UNIT_SP,Float.parseFloat(currentSize));
+        email.setTextSize(TypedValue.COMPLEX_UNIT_SP,Float.parseFloat(currentSize));
+        city.setTextSize(TypedValue.COMPLEX_UNIT_SP,Float.parseFloat(currentSize));
 
 
     }

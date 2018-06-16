@@ -2,9 +2,12 @@ package com.fireblend.uitest.ui;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,6 +41,8 @@ public class ContactDetailActivity extends AppCompatActivity {
     @BindView(R.id.text_provincia)
     TextView textoProvincia;
 
+    private SharedPreferences prefs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,9 +55,18 @@ public class ContactDetailActivity extends AppCompatActivity {
         email.setText(getIntent().getStringExtra(ConstantsApp.LLAVE_EMAIL).replace("Email:",""));
         textoProvincia.setText(getIntent().getStringExtra(ConstantsApp.LLAVE_PROVINCIA).replace("Provincia:",""));
 
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+
+        boolean btnEliminarHabilitado = prefs.getBoolean("pref_btn_eliminar",true);
+
+        btnEliminar.setEnabled(btnEliminarHabilitado);
+
+
         btnEliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
+
 
                 AlertDialog.Builder builderAlertDialog = new AlertDialog.Builder(view.getContext());
                 builderAlertDialog.setMessage("Está seguro que desea eliminar el Contacto?");
