@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".utils.DetailFragment">
+
+    <TextView
+        android:id="@+id/agregar_contacto"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="Detalles de Contacto"
+        android:textSize="30sp"
+        android:gravity="center_horizontal"/>
+
+    <LinearLayout
+        android:id="@+id/layout_nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/agregar_contacto"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_weight="30"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Nombre:"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/nombre_texto"
+            android:layout_weight="70"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_edad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/layout_nombre"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_weight="30"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Edad:"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/edad_texto"
+            android:layout_weight="70"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/layout_edad"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_weight="30"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Email:"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/email_texto"
+            android:layout_weight="70"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_telefono"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/layout_email"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_weight="30"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Telefono:"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/telefono_texto"
+            android:layout_weight="70"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_miembro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/layout_telefono"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_weight="30"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Provincia:"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/text_provincia"
+            android:layout_weight="70"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_botones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/layout_miembro"
+        android:layout_margin="10dp">
+    <Button
+        android:id="@+id/boton_eliminar"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Eliminar Contacto"
+        android:layout_below="@id/layout_miembro"
+        android:layout_centerHorizontal="true"/>
+    <Button
+        android:id="@+id/boton_editar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Editar Contacto"
+        android:layout_centerHorizontal="true"/>
+    </LinearLayout>
+
+</RelativeLayout>

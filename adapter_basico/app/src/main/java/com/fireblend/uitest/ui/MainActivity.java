@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity  {
 
 
             if(contactDao.queryForAll().isEmpty()){
-                Log.i("Test","out new queryForAll");
+
                contactDao.create(new Contact("Sergio", 28, "sergiome@gmail.com", "88854764","Alajuela"));
                 contactDao.create(new Contact("Andres", 1, "alex@gmail.com", "88883644","San Jose"));
                 contactDao.create(new Contact("Andrea", 2, "andrea@gmail.com", "98714764","Heredia"));

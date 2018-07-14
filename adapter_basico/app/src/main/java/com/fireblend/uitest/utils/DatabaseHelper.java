@@ -12,6 +12,7 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * Created by Estudiantes on 09/06/2018.
@@ -68,10 +69,27 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             DeleteBuilder deleteBuilder = mContactDao.deleteBuilder();
 
             deleteBuilder.where().eq("contact_name",nombre).and().eq("contact_age",edad).and().eq("contact_phone",telefono).and().eq("contact_email",email).and().eq("contact_city",provincia);
-            ;
+
             int value = deleteBuilder.delete();
 
-            Log.i("Test","Valor eliminar es:"+value);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void editarContacto(String oldNombre, String nombre,int edad, String email,String telefono, String provincia){
+        try {
+            getContactDao();
+            DeleteBuilder deleteBuilder = mContactDao.deleteBuilder();
+
+            deleteBuilder.where().eq("contact_name",oldNombre);
+
+            deleteBuilder.delete();
+
+            mContactDao.create(new Contact(nombre, edad, email, telefono,provincia));
+
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
