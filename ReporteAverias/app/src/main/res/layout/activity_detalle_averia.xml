@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.DetalleAveriaActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/detalles_averia"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="Detalles de la Avería"
+        android:textSize="30sp"
+        android:gravity="center_horizontal"/>
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true"
+        android:id="@+id/loading_icon_detalles"/>
+
+
+
+
+        <LinearLayout
+            android:id="@+id/layout_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/detalles_averia"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:layout_weight="30"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Id:"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/id_texto"
+                android:layout_weight="70"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/layout_id"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:layout_weight="30"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Nombre:"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/nombre_texto"
+                android:layout_weight="70"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_descripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/layout_nombre"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:layout_weight="30"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Descripción:"
+                android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/descripcion_texto"
+                android:layout_weight="70"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_fecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/layout_descripcion"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:layout_weight="30"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Fecha:"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/fecha_texto"
+                android:layout_weight="70"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_tipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/layout_fecha"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:layout_weight="30"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Tipo:"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/tipo_texto"
+                android:layout_weight="70"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_cedula"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/layout_tipo"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:layout_weight="30"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Cédula:"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/cedula_texto"
+                android:layout_weight="70"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/layout_cedula"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:layout_weight="30"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Email:"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/email_texto"
+                android:layout_weight="70"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layout_nombrePersona"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/layout_email"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:layout_weight="30"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Creador:"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/nombrePersona_texto"
+                android:layout_weight="70"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_telefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/layout_nombrePersona"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:layout_weight="30"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Telefono:"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/telefono_texto"
+                android:layout_weight="70"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_ubicacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/layout_telefono"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:layout_weight="30"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Ubicación:"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/ubicacion_texto"
+                android:layout_weight="70"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_botones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/layout_ubicacion"
+
+            android:gravity="center">
+            <Button
+                android:id="@+id/boton_editar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Editar Avería"
+                />
+
+            <Button
+                android:id="@+id/boton_cancelar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancelar"
+                />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</ScrollView>
